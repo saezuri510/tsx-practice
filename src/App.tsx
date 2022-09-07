@@ -1,4 +1,9 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const Button = styled.button`
+    margin: 16px 0;
+`;
 
 function App() {
     const [count, setCount] = useState<number>(0);
@@ -13,7 +18,10 @@ function App() {
     return (
         <div className="App">
             {count === 3 ? (
-                <Button onClick={() => setCount(0)}>clear!</Button>
+                <>
+                    <Button onClick={() => setCount(0)}>clear!</Button>
+                    <br />
+                </>
             ) : (
                 <p>You clicked {count} times</p>
             )}
