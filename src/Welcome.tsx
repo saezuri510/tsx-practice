@@ -1,13 +1,15 @@
-// import type { DataItem } from "./App";
+import type { DataItem } from "./DataItem";
 
-type test = {
-    name: string;
+const IsUndefined = (value: string | number | undefined) => {
+    return value !== undefined;
 };
 
-export const Welcome: React.FC<test> = ({ name /*, id, age*/ }) => {
-    <div>
-        <div>Hello, {name}</div>
-        {/* <div>{id}</div>
-        <div>{age}</div> */}
-    </div>;
+export const Welcome: React.FC<DataItem> = ({ name, id, age }) => {
+    return (
+        <div>
+            {IsUndefined(name) && <div>Hello, {name}</div>}
+            {IsUndefined(id) && <div>id: {id}</div>}
+            {IsUndefined(age) && <div>age: {age}</div>}
+        </div>
+    );
 };
