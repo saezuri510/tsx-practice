@@ -9,7 +9,7 @@ export default function App() {
     return (
         <div>
             {data.map((data: DataItem) => {
-                return <Welcome name={data.name} id={data.id} age={data.age} />;
+                return <Welcome {...data} />;
             })}
         </div>
     );
