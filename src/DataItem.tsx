@@ -1,5 +1,5 @@
 export type DataItem = {
-    name: string;
+    name?: string;
     id?: number;
     age?: number;
 };
