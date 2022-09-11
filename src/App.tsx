@@ -1,5 +1,6 @@
 import { Welcome } from "./Welcome";
 import type { DataItem } from "./DataItem";
+import { ChangeTitle } from "./ChangeTitle";
 
 export default function App() {
     const data: DataItem[] = [
@@ -11,6 +12,7 @@ export default function App() {
             {data.map((data: DataItem) => {
                 return <Welcome {...data} />;
             })}
+            <ChangeTitle />
         </div>
     );
 }
