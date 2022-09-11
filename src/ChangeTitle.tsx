@@ -2,11 +2,12 @@ import { useState } from "react";
 
 export const ChangeTitle = () => {
     const [text, setText] = useState<string>("");
-    const [title, setTitle] = useState<string>("");
-    const changeTitle = (e) => {
+
+    const changeTitle = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setTitle(text);
+        document.title = text;
     };
+
     return (
         <>
             <p>タイトルの変更</p>
@@ -18,7 +19,6 @@ export const ChangeTitle = () => {
                 />
                 <button>変更</button>
             </form>
-            <div>{title}</div>
         </>
     );
 };
