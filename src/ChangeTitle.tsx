@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ChangeTitle = () => {
     const [text, setText] = useState<string>("");
+    const [title, setTitle] = useState<string>("未指定");
 
     const changeTitle = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        document.title = text;
+        setTitle(text);
+        alert("The title was changed :" + text);
     };
+
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     return (
         <>
@@ -19,6 +25,7 @@ export const ChangeTitle = () => {
                 />
                 <button>変更</button>
             </form>
+            <div>現在のタイトル: {title}</div>
         </>
     );
 };
