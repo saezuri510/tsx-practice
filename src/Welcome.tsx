@@ -10,8 +10,14 @@ import type { DataItem } from "./DataItem";
 
 //valueはobjectとしてみたときundefinedではない
 //value.idはobjectの要素を指定するためundefind|number
+// const isUndefined = (value: DataItem) => {
+//     return value !== undefined;
+// };
+//vlaue {id: undefined}
+//typeof value // object
+
 const isUndefined = (value: DataItem) => {
-    return value === undefined;
+    return Object.values(value)[0] !== undefined;
 };
 
 export const Welcome = ({ name, id, age }: DataItem) => {
@@ -19,6 +25,7 @@ export const Welcome = ({ name, id, age }: DataItem) => {
         <div>
             {isUndefined({ name }) && <div>Hello, {name}</div>}
             {isUndefined({ id }) && <div>id: {id}</div>}
+            {isUndefined({ age }) && <div>age: {age}</div>}
             {/* {name !== undefined && <div>Hello, {name}</div>}
             {id !== undefined && <div>id: {id}</div>}
             {age !== undefined && <div>age: {age}</div>} */}
