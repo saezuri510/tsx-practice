@@ -8,18 +8,20 @@ import type { DataItem } from "./DataItem";
 //     )
 // });
 
-// const isUndefined = (value: DataItem) => {
-//     return value !== undefined;
-// };
+//valueはobjectとしてみたときundefinedではない
+//value.idはobjectの要素を指定するためundefind|number
+const isUndefined = (value: DataItem) => {
+    return value === undefined;
+};
 
-export const Welcome: React.FC<DataItem> = ({ name, id, age }) => {
+export const Welcome = ({ name, id, age }: DataItem) => {
     return (
         <div>
-            {/* {isUndefined({ name }) && <div>Hello, {name}</div>}
-            {isUndefined({ id }) && <div>id: {id}</div>} */}
-            {name !== undefined && <div>Hello, {name}</div>}
+            {isUndefined({ name }) && <div>Hello, {name}</div>}
+            {isUndefined({ id }) && <div>id: {id}</div>}
+            {/* {name !== undefined && <div>Hello, {name}</div>}
             {id !== undefined && <div>id: {id}</div>}
-            {age !== undefined && <div>age: {age}</div>}
+            {age !== undefined && <div>age: {age}</div>} */}
         </div>
     );
 };
