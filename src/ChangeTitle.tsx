@@ -3,11 +3,14 @@ import { useState } from "react";
 export const ChangeTitle = () => {
     const [text, setText] = useState<string>("");
     const [title, setTitle] = useState<string>("");
-    const changeText = () => {};
+    const changeTitle = (e) => {
+        e.preventDefault();
+        setTitle(text);
+    };
     return (
         <>
-            <h1>タイトルの変更</h1>
-            <form onSubmit={changeText}>
+            <p>タイトルの変更</p>
+            <form onSubmit={changeTitle}>
                 <input
                     type="text"
                     value={text}
@@ -15,7 +18,7 @@ export const ChangeTitle = () => {
                 />
                 <button>変更</button>
             </form>
-            <div>{text}</div>
+            <div>{title}</div>
         </>
     );
 };
